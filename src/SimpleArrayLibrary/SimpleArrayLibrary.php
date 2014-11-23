@@ -1,6 +1,6 @@
 <?php
 
-namespace simpleArrayLibrary;
+namespace SimpleArrayLibrary;
 
 class SimpleArrayLibrary
 {
