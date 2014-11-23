@@ -10,7 +10,7 @@ You'll need: PHP version 5.4+
 
 Quickstart
 ==========
-Install the latest version with composer:
+Install the latest version with composer:<br/>
 require "coa/simple-array-library"
 
 Just auto-load the library:
