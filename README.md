@@ -10,19 +10,21 @@ You'll need: PHP version 5.4+
 
 Quickstart
 ==========
-Install the latest version with composer require SimpleArrayLibrary/SimpleArrayLibrary
+Install the latest version with composer:
+require "coa/simple-array-library"
+
 Just auto-load the library:
 
 use SimpleArrayLibrary/SimpleArrayLibrary
 
-and you're ready to go. Methods availble:
+and you're ready to go. Methods availble:<br/>
 
-getRectangularDimensions
-allElementsEqual
-getColumn
-isAssociative
-countMaxDepth
-hasAllKeys
-haveEqualKeys
+-getRectangularDimensions<br/>
+-allElementsEqual<br/>
+-getColumn<br/>
+-isAssociative<br/>
+-countMaxDepth<br/>
+-hasAllKeys<br/>
+-haveEqualKeys<br/>
 
 Method names are pretty self-explanatory
