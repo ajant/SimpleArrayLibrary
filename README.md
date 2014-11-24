@@ -1,5 +1,6 @@
 SimpleArrayLibrary
 ==================
+[![Build Status](https://travis-ci.org/ajant/SimpleArrayLibrary.svg?branch=master)](https://travis-ci.org/ajant/SimpleArrayLibrary)
 
 Simple library containing convenient array handling utilities
 
