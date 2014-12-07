@@ -13,8 +13,8 @@
 	    "phpunit/phpunit": "4.*"
     },
 	"autoload": {
-		"psr-0": {
-			"SimpleArrayLibrary": "src/"
+		"psr-4": {
+			"SimpleArrayLibrary\\": "src"
 		}
 	}
 }
