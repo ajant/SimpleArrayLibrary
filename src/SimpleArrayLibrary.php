@@ -71,19 +71,24 @@ class SimpleArrayLibrary
     /**
      * Extracts a column from an array
      *
-     * @param array  $array
-     * @param string $column
+     * @param array $array
+     * @param array $columns
      *
-     * @return array
+     * @return array|bool
      */
-    public static function getColumn(array $array, $column)
+    public static function getColumns(array $array, array $columns)
     {
         $return = [];
+        foreach ($columns as $column) {
+            $return[$column] = [];
+        }
         foreach ($array as $key => $row) {
-            if (isset($row[$column]) || array_key_exists($column, $row)) {
-                $return[$key] = $row[$column];
-            } else {
-                return false;
+            foreach ($columns as $column) {
+                if (isset($row[$column]) || array_key_exists($column, $row)) {
+                    $return[$column][$key] = $row[$column];
+                } else {
+                    return false;
+                }
             }
         }
 
@@ -165,5 +170,49 @@ class SimpleArrayLibrary
         } else {
             return false;
         }
+    }
+
+    /**
+     * Checks whether $subArray is contained in $array
+     *
+     * @param array $array
+     * @param array $subArray
+     *
+     * @return bool
+     */
+    public static function isSubArray(array $array, array $subArray)
+    {
+        $return = true;
+        foreach ($subArray as $key => $value) {
+            if (isset($array[$key]) || array_key_exists($key, $array)) {
+                if ($array[$key] != $subArray[$key]) {
+                    $return = false;
+                    break;
+                }
+            } else {
+                $return = false;
+                break;
+            }
+        }
+
+        return $return;
+    }
+
+    /**
+     * Check if two arrays have all equal values
+     *
+     * @param array $arr1
+     * @param array $arr2
+     *
+     * @return bool
+     */
+    public static function haveEqualValues($arr1, $arr2)
+    {
+        $a1 = array_values($arr1);
+        $a2 = array_values($arr2);
+        sort($a1);
+        sort($a2);
+
+        return $a1 === $a2;
     }
 }

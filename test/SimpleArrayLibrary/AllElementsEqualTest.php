@@ -28,37 +28,37 @@ class AllElementsEqualTest extends PHPUnit_Framework_TestCase
      */
     public function getData()
     {
-        return array(
+        return [
             // #0 value provided, all elements equal to it
-            array(
-                array(
-                    'array'     => array(1, 1),
+            [
+                [
+                    'array'     => [1, 1],
                     'value'     => 1,
                     'expResult' => true
-                )
-            ),
+                ]
+            ],
             // #1 value provided, not all elements equal to it
-            array(
-                array(
-                    'array'     => array(1, array(1)),
+            [
+                [
+                    'array'     => [1, [1]],
                     'value'     => 1,
                     'expResult' => false
-                )
-            ),
+                ]
+            ],
             // #2 value not provided, all elements not equal
-            array(
-                array(
-                    'array'     => array(array(1, 2, 3, 4), array(array(1, 2, 3, 4)), array(array(1, 2, 3, 4))),
+            [
+                [
+                    'array'     => [[1, 2, 3, 4], [[1, 2, 3, 4]], [[1, 2, 3, 4]]],
                     'expResult' => false
-                )
-            ),
+                ]
+            ],
             // #3 value not provided, all elements equal
-            array(
-                array(
-                    'array'     => array(array(array(1, 2, 3, 4)), array(array(1, 2, 3, 4)), array(array(1, 2, 3, 4))),
+            [
+                [
+                    'array'     => [[[1, 2, 3, 4]], [[1, 2, 3, 4]], [[1, 2, 3, 4]]],
                     'expResult' => true
-                )
-            )
-        );
+                ]
+            ]
+        ];
     }
 }

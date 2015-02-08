@@ -24,31 +24,31 @@ class CountMaxDepthTest extends PHPUnit_Framework_TestCase
      */
     public function getData()
     {
-        return array(
+        return [
             // #0 rectangular
-            array(
-                array(
-                    'array'     => array(1, 1),
+            [
+                [
+                    'array'     => [1, 1],
                     'depth'     => 1,
                     'expResult' => 2
-                )
-            ),
+                ]
+            ],
             // #1 non-rectangular
-            array(
-                array(
-                    'array'     => array(1, array(1)),
+            [
+                [
+                    'array'     => [1, [1]],
                     'depth'     => 0,
                     'expResult' => 2
-                )
-            ),
+                ]
+            ],
             // #2 non-array
-            array(
-                array(
+            [
+                [
                     'array'     => 1,
                     'depth'     => 1,
                     'expResult' => 1
-                )
-            )
-        );
+                ]
+            ]
+        ];
     }
 }

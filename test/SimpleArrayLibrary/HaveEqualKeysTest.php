@@ -27,87 +27,87 @@ class HaveEqualKeysTest extends PHPUnit_Framework_TestCase
      */
     public function getData()
     {
-        return array(
+        return [
             // #0 equal associative keys
-            array(
-                array(
-                    'array1'   => array('a' => 1),
-                    'array2'   => array('a' => 2),
+            [
+                [
+                    'array1'   => ['a' => 1],
+                    'array2'   => ['a' => 2],
                     'expected' => true
-                )
-            ),
+                ]
+            ],
             // #1 both empty arrays
-            array(
-                array(
-                    'array1'   => array(),
-                    'array2'   => array(),
+            [
+                [
+                    'array1'   => [],
+                    'array2'   => [],
                     'expected' => true
-                )
-            ),
+                ]
+            ],
             // #2 equal numeric keys
-            array(
-                array(
-                    'array1'   => array(1),
-                    'array2'   => array(2),
+            [
+                [
+                    'array1'   => [1],
+                    'array2'   => [2],
                     'expected' => true
-                )
-            ),
+                ]
+            ],
             // #3 equal associative and numeric keys
-            array(
-                array(
-                    'array1'   => array('0' => 1),
-                    'array2'   => array(2),
+            [
+                [
+                    'array1'   => ['0' => 1],
+                    'array2'   => [2],
                     'expected' => true
-                )
-            ),
+                ]
+            ],
             // #4 not equal associative keys
-            array(
-                array(
-                    'array1'   => array('a' => 1),
-                    'array2'   => array('b' => 2),
+            [
+                [
+                    'array1'   => ['a' => 1],
+                    'array2'   => ['b' => 2],
                     'expected' => false
-                )
-            ),
+                ]
+            ],
             // #5 first array empty
-            array(
-                array(
-                    'array1'   => array('a' => 1),
-                    'array2'   => array(),
+            [
+                [
+                    'array1'   => ['a' => 1],
+                    'array2'   => [],
                     'expected' => false
-                )
-            ),
+                ]
+            ],
             // #6 second array empty
-            array(
-                array(
-                    'array1'   => array(),
-                    'array2'   => array('a' => 1),
+            [
+                [
+                    'array1'   => [],
+                    'array2'   => ['a' => 1],
                     'expected' => false
-                )
-            ),
+                ]
+            ],
             // #7 not equal associative and numeric keys
-            array(
-                array(
-                    'array1'   => array(1),
-                    'array2'   => array('a' => 1),
+            [
+                [
+                    'array1'   => [1],
+                    'array2'   => ['a' => 1],
                     'expected' => false
-                )
-            ),
+                ]
+            ],
             // #8 not equal associative and numeric keys
-            array(
-                array(
-                    'array1'   => array(1),
-                    'array2'   => array('a' => 1, 1),
+            [
+                [
+                    'array1'   => [1],
+                    'array2'   => ['a' => 1, 1],
                     'expected' => false
-                )
-            ),
+                ]
+            ],
             // #9 not equal associative and numeric keys
-            array(
-                array(
-                    'array1'   => array(1, 'a' => 1),
-                    'array2'   => array(2),
+            [
+                [
+                    'array1'   => [1, 'a' => 1],
+                    'array2'   => [2],
                     'expected' => false
-                )
-            )
-        );
+                ]
+            ]
+        ];
     }
 }

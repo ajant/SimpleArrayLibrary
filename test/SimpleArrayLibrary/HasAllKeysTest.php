@@ -27,55 +27,55 @@ class HasAllKeysTest extends PHPUnit_Framework_TestCase
      */
     public function getData()
     {
-        return array(
+        return [
             // #0 non empty array and keys
-            array(
-                array(
-                    'array'    => array('a' => 1),
-                    'keys'     => array('a'),
+            [
+                [
+                    'array'    => ['a' => 1],
+                    'keys'     => ['a'],
                     'expected' => true
-                )
-            ),
+                ]
+            ],
             // #1 both empty array and keys
-            array(
-                array(
-                    'array'    => array(),
-                    'keys'     => array(),
+            [
+                [
+                    'array'    => [],
+                    'keys'     => [],
                     'expected' => true
-                )
-            ),
+                ]
+            ],
             // #2 non empty array and empty keys
-            array(
-                array(
-                    'array'    => array('a' => 1),
-                    'keys'     => array(),
+            [
+                [
+                    'array'    => ['a' => 1],
+                    'keys'     => [],
                     'expected' => true
-                )
-            ),
+                ]
+            ],
             // #3 key is missing
-            array(
-                array(
-                    'array'    => array('b' => 1),
-                    'keys'     => array('a'),
+            [
+                [
+                    'array'    => ['b' => 1],
+                    'keys'     => ['a'],
                     'expected' => false
-                )
-            ),
+                ]
+            ],
             // #4 key is missing
-            array(
-                array(
-                    'array'    => array('b' => 1),
-                    'keys'     => array('a', 'b'),
+            [
+                [
+                    'array'    => ['b' => 1],
+                    'keys'     => ['a', 'b'],
                     'expected' => false
-                )
-            ),
+                ]
+            ],
             // #5 empty array, non empty keys
-            array(
-                array(
-                    'array'    => array(),
-                    'keys'     => array('a'),
+            [
+                [
+                    'array'    => [],
+                    'keys'     => ['a'],
                     'expected' => false
-                )
-            )
-        );
+                ]
+            ]
+        ];
     }
 }

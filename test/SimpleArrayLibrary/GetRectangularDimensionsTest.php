@@ -24,28 +24,28 @@ class GetRectangularDimensionsTest extends PHPUnit_Framework_TestCase
      */
     public function getData()
     {
-        return array(
+        return [
             // #0 1 level, 1 element
-            array(
-                array(
-                    'array'     => array(1),
-                    'expResult' => array(1)
-                )
-            ),
+            [
+                [
+                    'array'     => [1],
+                    'expResult' => [1]
+                ]
+            ],
             // #1 non rectangular
-            array(
-                array(
-                    'array'     => array(1, array(1)),
+            [
+                [
+                    'array'     => [1, [1]],
                     'expResult' => -1
-                )
-            ),
+                ]
+            ],
             // #2 3 levels: 4 elements on the deepest level, 1 element on middle level, 3 on the shallowes
-            array(
-                array(
-                    'array'     => array(array(array(1, 2, 3, 4)), array(array(1, 2, 3, 4)), array(array(1, 2, 3, 4))),
-                    'expResult' => array(4, 1, 3)
-                )
-            )
-        );
+            [
+                [
+                    'array'     => [[[1, 2, 3, 4]], [[1, 2, 3, 4]], [[1, 2, 3, 4]]],
+                    'expResult' => [4, 1, 3]
+                ]
+            ]
+        ];
     }
 }

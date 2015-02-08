@@ -24,21 +24,21 @@ class IsAssociativeTest extends PHPUnit_Framework_TestCase
      */
     public function getData()
     {
-        return array(
+        return [
             // #0 numeric
-            array(
-                array(
-                    'array'     => array(1, 1),
+            [
+                [
+                    'array'     => [1, 1],
                     'expResult' => false
-                )
-            ),
+                ]
+            ],
             // #1 associative
-            array(
-                array(
-                    'array'     => array('a' => 1, 'b' => array(1)),
+            [
+                [
+                    'array'     => ['a' => 1, 'b' => [1]],
                     'expResult' => true
-                )
-            )
-        );
+                ]
+            ]
+        ];
     }
 }
