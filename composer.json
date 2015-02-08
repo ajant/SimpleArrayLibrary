@@ -7,6 +7,9 @@
             "email": "jovanovic.aleksandar.83@gmail.com"
         }
     ],
+    "license": "MIT",
+    "description": "Simple library containing convenient array handling methods",
+    "homepage": "https://github.com/ajant/SimpleArrayLibrary",
     "minimum-stability": "dev",
     "require": {
 	    "php": ">=5.4.0",
