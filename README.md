@@ -9,7 +9,7 @@ ajant.github@gmail.com
 Requirements
 ==============================
 
-You'll need: PHP version 4+
+You'll need: PHP version 5.4+
 
 Quickstart
 ==============================
