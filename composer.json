@@ -10,10 +10,10 @@
     "license": "MIT",
     "description": "Simple library containing convenient array handling methods",
     "homepage": "https://github.com/ajant/SimpleArrayLibrary",
-    "minimum-stability": "dev",
+    "minimum-stability": "stable",
     "require": {
-	    "php": ">=5.3.0",
-	    "phpunit/phpunit": "3.7.*"
+	    "php": ">=5.4.0",
+	    "phpunit/phpunit": "4.*"
     },
 	"autoload": {
 		"psr-4": {
