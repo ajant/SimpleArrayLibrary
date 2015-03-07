@@ -35,6 +35,13 @@ class IsAssociativeTest extends PHPUnit_Framework_TestCase
                     'array'     => array('a' => 1, 'b' => array(1)),
                     'expResult' => true
                 )
+            ),
+            // #2 mixed === associative
+            array(
+                array(
+                    'array'     => array('a' => 1, array(1)),
+                    'expResult' => true
+                )
             )
         );
     }

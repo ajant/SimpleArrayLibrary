@@ -1,5 +1,6 @@
 language: php
 php:
-  - 4.0.0
+  - 4.0
+  - 5.3
 before_script: composer install
 script: vendor/phpunit/phpunit/phpunit test/

@@ -23,8 +23,9 @@ use SimpleArrayLibrary/SimpleArrayLibrary
 ```
 and you're ready to go.
 
-Usage examples (for additional help, look at the tests, additional input scenarios are tested)
+Usage examples
 ==============================
+For additional help, look at the tests, additional input scenarios are tested.
 allElementsEqual
 ------------------------------
 ```
@@ -134,17 +135,22 @@ SimpleArrayLibrary::hasAllValues(array('b', 1), array('a', 'b')); // false
 haveEqualKeys
 ------------------------------
 ```
-SimpleArrayLibrary::haveEqualKeys(); //
+SimpleArrayLibrary::haveEqualKeys(array('a' => 1), array('a' => 2)); // true
+SimpleArrayLibrary::haveEqualKeys(array(), array()); // true
+SimpleArrayLibrary::haveEqualKeys(array(1, 'a' => 1), array(2)); // false
 ```
 haveEqualValues
 ------------------------------
 ```
-SimpleArrayLibrary::haveEqualValues(); //
+SimpleArrayLibrary::haveEqualValues(array('a' => 1), array(1)); // true
+SimpleArrayLibrary::haveEqualValues(array(), array()); // true
+SimpleArrayLibrary::haveEqualValues(array(1), array(2)); // false
 ```
 isAssociative
 ------------------------------
 ```
-SimpleArrayLibrary::isAssociative(); //
+SimpleArrayLibrary::isAssociative(array('a' => 1, array(1))); // true
+SimpleArrayLibrary::isAssociative(array(1, 1)); // false
 ```
 isSubArray
 ------------------------------
