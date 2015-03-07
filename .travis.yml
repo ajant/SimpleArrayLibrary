@@ -1,6 +1,9 @@
 language: php
 php:
-  - 5.5
-  - 5.4
-before_script: composer install
-script: vendor/phpunit/phpunit/phpunit test/
+  - 4.0
+#  - 5.4
+#  - 5.5
+#before_script: composer install
+before_script: pear install PHPUnit
+#script: vendor/phpunit/phpunit/phpunit test/
+script: phpunit test/
