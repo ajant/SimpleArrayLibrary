@@ -2,9 +2,6 @@
 
 use \SimpleArrayLibrary\SimpleArrayLibrary;
 
-/**
- * Tests isSubArray method with valid data
- */
 class IsSubArrayTest extends PHPUnit_Framework_TestCase
 {
     /**

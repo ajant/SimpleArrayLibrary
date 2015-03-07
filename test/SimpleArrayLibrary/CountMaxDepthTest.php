@@ -2,9 +2,6 @@
 
 use \SimpleArrayLibrary\SimpleArrayLibrary;
 
-/**
- * Tests countMaxDepth method with valid data
- */
 class CountMaxDepthTest extends PHPUnit_Framework_TestCase
 {
     /**

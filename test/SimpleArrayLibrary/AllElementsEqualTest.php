@@ -2,9 +2,6 @@
 
 use \SimpleArrayLibrary\SimpleArrayLibrary;
 
-/**
- * Tests allElementsEqual method with valid data
- */
 class AllElementsEqualTest extends PHPUnit_Framework_TestCase
 {
     /**

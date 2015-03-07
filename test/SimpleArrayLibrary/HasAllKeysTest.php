@@ -2,9 +2,6 @@
 
 use \SimpleArrayLibrary\SimpleArrayLibrary;
 
-/**
- * Tests hasAllKeys method with valid data
- */
 class HasAllKeysTest extends PHPUnit_Framework_TestCase
 {
     /**

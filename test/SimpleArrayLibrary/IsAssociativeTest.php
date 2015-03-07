@@ -2,9 +2,6 @@
 
 use \SimpleArrayLibrary\SimpleArrayLibrary;
 
-/**
- * Tests isAssociative method with valid data
- */
 class IsAssociativeTest extends PHPUnit_Framework_TestCase
 {
     /**

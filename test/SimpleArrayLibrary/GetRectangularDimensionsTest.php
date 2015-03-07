@@ -2,9 +2,6 @@
 
 use \SimpleArrayLibrary\SimpleArrayLibrary;
 
-/**
- * Tests getRectangularDimensions method with valid data
- */
 class GetRectangularDimensionsTest extends PHPUnit_Framework_TestCase
 {
     /**

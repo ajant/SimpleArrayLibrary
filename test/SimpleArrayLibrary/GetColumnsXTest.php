@@ -2,9 +2,6 @@
 
 use \SimpleArrayLibrary\SimpleArrayLibrary;
 
-/**
- * Tests getColumn method with valid data
- */
 class GetColumnsXTest extends PHPUnit_Framework_TestCase
 {
     /**

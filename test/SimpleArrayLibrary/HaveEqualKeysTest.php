@@ -2,9 +2,6 @@
 
 use \SimpleArrayLibrary\SimpleArrayLibrary;
 
-/**
- * Tests haveEqualKeys method with valid data
- */
 class HaveEqualKeysTest extends PHPUnit_Framework_TestCase
 {
     /**
