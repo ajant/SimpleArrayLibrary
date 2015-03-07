@@ -57,6 +57,16 @@ class GetColumnsXTest extends PHPUnit_Framework_TestCase
                     'exception'                 => 'UnexpectedValueException',
                     'errorMessage'              => 'Row "a" is missing column: "1"'
                 )
+            ),
+            // #3 invalid $allRowsMustHaveAllColumns
+            array(
+                array(
+                    'array'                     => array('a' => array(1), array(1, 2)),
+                    'columns'                   => array(0, 1),
+                    'allRowsMustHaveAllColumns' => array(),
+                    'exception'                 => 'InvalidArgumentException',
+                    'errorMessage'              => 'allRowsMustHaveAllColumns flag must be boolean'
+                )
             )
         );
     }

@@ -115,6 +115,9 @@ class SimpleArrayLibrary
                 throw new InvalidArgumentException('Invalid column type in columns array, index "' . $key . '"');
             }
         }
+        if (!is_bool($allRowsMustHaveAllColumns)) {
+            throw new InvalidArgumentException('allRowsMustHaveAllColumns flag must be boolean');
+        }
 
         $return = array_fill_keys($columns, array());
         foreach ($array as $key => $row) {
