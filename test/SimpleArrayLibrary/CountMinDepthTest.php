@@ -2,10 +2,7 @@
 
 use \SimpleArrayLibrary\SimpleArrayLibrary;
 
-/**
- * Tests countMaxDepth method with valid data
- */
-class CountMaxDepthTest extends PHPUnit_Framework_TestCase
+class CountMinDepthTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @param array $data
@@ -16,7 +13,7 @@ class CountMaxDepthTest extends PHPUnit_Framework_TestCase
     public function test_function(array $data)
     {
         // invoke logic & test
-        $this->assertEquals($data['expResult'], SimpleArrayLibrary::countMaxDepth($data['array'], $data['depth']));
+        $this->assertEquals($data['expResult'], SimpleArrayLibrary::countMinDepth($data['array'], $data['depth']));
     }
 
     /**
@@ -37,8 +34,8 @@ class CountMaxDepthTest extends PHPUnit_Framework_TestCase
             array(
                 array(
                     'array'     => array(1, array(1)),
-                    'depth'     => 0,
-                    'expResult' => 2
+                    'depth'     => 2,
+                    'expResult' => 3
                 )
             ),
             // #2 non-array

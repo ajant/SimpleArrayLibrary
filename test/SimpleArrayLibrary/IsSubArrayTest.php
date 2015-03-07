@@ -24,31 +24,31 @@ class IsSubArrayTest extends PHPUnit_Framework_TestCase
      */
     public function getData()
     {
-        return [
+        return array(
             // #0 sub array exists
-            [
-                [
-                    'array'     => [2, 1],
-                    'subArray'  => [2],
+            array(
+                array(
+                    'array'     => array(2, 1),
+                    'subArray'  => array(2),
                     'expResult' => true
-                ]
-            ],
+                )
+            ),
             // #1 not a sub array, different key
-            [
-                [
-                    'array'     => ['a' => 1, 'b' => [1]],
-                    'subArray'  => ['c' => 1],
+            array(
+                array(
+                    'array'     => array('a' => 1, 'b' => array(1)),
+                    'subArray'  => array('c' => 1),
                     'expResult' => false
-                ]
-            ],
+                )
+            ),
             // #2 not a sub array, different value
-            [
-                [
-                    'array'     => ['a' => 1, 'b' => [1]],
-                    'subArray'  => ['a' => 2],
+            array(
+                array(
+                    'array'     => array('a' => 1, 'b' => array(1)),
+                    'subArray'  => array('a' => 2),
                     'expResult' => false
-                ]
-            ]
-        ];
+                )
+            )
+        );
     }
 }

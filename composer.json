@@ -1,5 +1,5 @@
 {
-    "name": "coa/simple-array-library",
+    "name": "ajant/simple-array-library",
     "description": "Simple array utilities library",
     "authors": [
         {
@@ -12,7 +12,7 @@
     "homepage": "https://github.com/ajant/SimpleArrayLibrary",
     "minimum-stability": "dev",
     "require": {
-	    "php": ">=5.4.0",
+	    "php": ">=4.0.0",
 	    "phpunit/phpunit": "4.*"
     },
 	"autoload": {

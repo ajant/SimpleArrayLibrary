@@ -5,7 +5,7 @@ use \SimpleArrayLibrary\SimpleArrayLibrary;
 /**
  * Tests hasAllKeys method with valid data
  */
-class HasAllKeysTest extends PHPUnit_Framework_TestCase
+class HasAllValuesTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @param array $data
@@ -16,7 +16,7 @@ class HasAllKeysTest extends PHPUnit_Framework_TestCase
     public function test_function(array $data)
     {
         // invoke logic
-        $result = SimpleArrayLibrary::hasAllKeys($data['array'], $data['keys']);
+        $result = SimpleArrayLibrary::hasAllValues($data['array'], $data['values']);
 
         // test
         $this->assertEquals($data['expected'], $result);
@@ -32,7 +32,7 @@ class HasAllKeysTest extends PHPUnit_Framework_TestCase
             array(
                 array(
                     'array'    => array('a' => 1),
-                    'keys'     => array('a'),
+                    'values'   => array(1),
                     'expected' => true
                 )
             ),
@@ -40,7 +40,7 @@ class HasAllKeysTest extends PHPUnit_Framework_TestCase
             array(
                 array(
                     'array'    => array(),
-                    'keys'     => array(),
+                    'values'   => array(),
                     'expected' => true
                 )
             ),
@@ -48,31 +48,31 @@ class HasAllKeysTest extends PHPUnit_Framework_TestCase
             array(
                 array(
                     'array'    => array('a' => 1),
-                    'keys'     => array(),
+                    'values'   => array(),
                     'expected' => true
                 )
             ),
-            // #3 key is missing
+            // #3 value is missing
             array(
                 array(
                     'array'    => array('b' => 1),
-                    'keys'     => array('a'),
+                    'values'   => array('b' => 2),
                     'expected' => false
                 )
             ),
-            // #4 key is missing
+            // #4 value is missing
             array(
                 array(
-                    'array'    => array('b' => 1),
-                    'keys'     => array('a', 'b'),
+                    'array'    => array('b', 1),
+                    'values'   => array('a', 'b'),
                     'expected' => false
                 )
             ),
-            // #5 empty array, non empty keys
+            // #5 empty array, non empty values
             array(
                 array(
                     'array'    => array(),
-                    'keys'     => array('a'),
+                    'values'   => array('a'),
                     'expected' => false
                 )
             )

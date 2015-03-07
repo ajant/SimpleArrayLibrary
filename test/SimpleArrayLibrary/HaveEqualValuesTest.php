@@ -27,39 +27,39 @@ class HaveEqualValuesTest extends PHPUnit_Framework_TestCase
      */
     public function getData()
     {
-        return [
+        return array(
             // #0 equal values & keys
-            [
-                [
-                    'array1'   => ['a' => 1],
-                    'array2'   => ['a' => 1],
+            array(
+                array(
+                    'array1'   => array('a' => 1),
+                    'array2'   => array('a' => 1),
                     'expected' => true
-                ]
-            ],
+                )
+            ),
             // #1 both empty arrays
-            [
-                [
-                    'array1'   => [],
-                    'array2'   => [],
+            array(
+                array(
+                    'array1'   => array(),
+                    'array2'   => array(),
                     'expected' => true
-                ]
-            ],
+                )
+            ),
             // #2 equal values, not equal keys
-            [
-                [
-                    'array1'   => ['a' => 1],
-                    'array2'   => [1],
+            array(
+                array(
+                    'array1'   => array('a' => 1),
+                    'array2'   => array(1),
                     'expected' => true
-                ]
-            ],
+                )
+            ),
             // #3 equal keys, but not values
-            [
-                [
-                    'array1'   => [1],
-                    'array2'   => [2],
+            array(
+                array(
+                    'array1'   => array(1),
+                    'array2'   => array(2),
                     'expected' => false
-                ]
-            ]
-        ];
+                )
+            )
+        );
     }
 }
