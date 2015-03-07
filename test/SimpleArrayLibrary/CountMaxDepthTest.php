@@ -25,7 +25,7 @@ class CountMaxDepthTest extends PHPUnit_Framework_TestCase
             // #0 rectangular
             array(
                 array(
-                    'array'     => array(1, 1),
+                    'array'     => array(),
                     'depth'     => 1,
                     'expResult' => 2
                 )
