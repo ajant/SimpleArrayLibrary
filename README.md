@@ -33,7 +33,7 @@ Checks whether all elements of the array are equal and optionally if they are al
 SimpleArrayLibrary::allElementsEqual(array(1, 1)); // true
 SimpleArrayLibrary::allElementsEqual(array(1, 2)); // false
 SimpleArrayLibrary::allElementsEqual(array(1, 1), 1); // true
-SimpleArrayLibrary::allElementsEqual(array(1, 1) 2); // false
+SimpleArrayLibrary::allElementsEqual(array(1, 1), 2); // false
 ```
 countMaxDepth
 ------------------------------
