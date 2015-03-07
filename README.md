@@ -28,6 +28,7 @@ Usage examples
 For additional help, look at the tests, additional input scenarios are tested.
 allElementsEqual
 ------------------------------
+Checks whether all elements of the array are equal and optionally if they are all equal to specified value.
 ```
 SimpleArrayLibrary::allElementsEqual(array(1, 1)); // true
 SimpleArrayLibrary::allElementsEqual(array(1, 2)); // false
@@ -36,6 +37,8 @@ SimpleArrayLibrary::allElementsEqual(array(1, 1) 2); // false
 ```
 countMaxDepth
 ------------------------------
+Count maximum depth of the array (number of nested sub-arrays) recursively.
+
 Second parameter must be an integer, or exception is thrown.
 This is a recursive method, second parameter is used for recursive calls and should not be used from the outside of the method.
 ```
@@ -51,8 +54,9 @@ SimpleArrayLibrary::countMaxDepth(array(), 1); // 2
 ```
 countMinDepth
 ------------------------------
-Second parameter must be an integer, or exception is thrown.
+Count minimum depth of the array (number of nested sub-arrays) recursively.
 
+Second parameter must be an integer, or exception is thrown.
 This is a recursive method, second parameter is used for recursive calls and should not be used from the outside of the method.
 ```
 SimpleArrayLibrary::countMinDepth(array()); // 1
@@ -67,6 +71,8 @@ SimpleArrayLibrary::countMinDepth(array(), 1); // 2
 ```
 getColumns
 ------------------------------
+Retrieves values of required columns out of the multi-dimensional array.
+
 First parameter must be array of arrays (matrix) otherwise it makes no sense to search for columns & exception is thrown.
 
 Second parameter must be an array of elements that could be used as array indexes, otherwise exception is thrown.
@@ -120,6 +126,7 @@ SimpleArrayLibrary::getRectangularDimensions(
 ```
 hasAllKeys
 ------------------------------
+Checks if all required keys are present inside an array, regardless of values.
 ```
 SimpleArrayLibrary::hasAllKeys(array('a' => 1), array('a')); // true
 SimpleArrayLibrary::hasAllKeys(array(), array()); // true
@@ -127,6 +134,7 @@ SimpleArrayLibrary::hasAllKeys(array('b' => 1), array('a', 'b')); // false
 ```
 hasAllValues
 ------------------------------
+Checks if all required values are present inside an array, regardless of keys.
 ```
 SimpleArrayLibrary::hasAllValues(array('a' => 1), array(1)); // true
 SimpleArrayLibrary::hasAllValues(array(), array()); // true
@@ -134,6 +142,7 @@ SimpleArrayLibrary::hasAllValues(array('b', 1), array('a', 'b')); // false
 ```
 haveEqualKeys
 ------------------------------
+Checks if two arrays have equal keys, regardless of values.
 ```
 SimpleArrayLibrary::haveEqualKeys(array('a' => 1), array('a' => 2)); // true
 SimpleArrayLibrary::haveEqualKeys(array(), array()); // true
@@ -141,6 +150,7 @@ SimpleArrayLibrary::haveEqualKeys(array(1, 'a' => 1), array(2)); // false
 ```
 haveEqualValues
 ------------------------------
+Checks if two arrays have equal values, regardless of keys.
 ```
 SimpleArrayLibrary::haveEqualValues(array('a' => 1), array(1)); // true
 SimpleArrayLibrary::haveEqualValues(array(), array()); // true
@@ -148,12 +158,19 @@ SimpleArrayLibrary::haveEqualValues(array(1), array(2)); // false
 ```
 isAssociative
 ------------------------------
+Checks whether array has any associative keys.
 ```
 SimpleArrayLibrary::isAssociative(array('a' => 1, array(1))); // true
 SimpleArrayLibrary::isAssociative(array(1, 1)); // false
 ```
 isSubArray
 ------------------------------
+Checks whether array is sub-array of the other array (whether all key-value pairs of sub-array are present in array).
+
+Third parameter must be a boolean, otherwise exception is thrown. If third parameter is set to true, strict comparison is
+used (===) when comparing array values, otherwise regular comparison is used (==).
 ```
-SimpleArrayLibrary::isSubArray(); //
+SimpleArrayLibrary::isSubArray(array(2, 1), array(2)); // true
+SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)), array('c' => 1)); // false
+SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)),array('a' => 2)); // false
 ```
