@@ -54,12 +54,11 @@ class SimpleArrayLibrary
         $return = $depth;
         if (is_array($potentialArray)) {
             $return++;
+            $childrenDepths = array();
             foreach ($potentialArray as $element) {
-                $result = self::countMaxDepth($element, $return);
-                if ($result > $return) {
-                    $return = $result;
-                }
+                $childrenDepths[] = self::countMaxDepth($element, $return);
             }
+            $return = empty($childrenDepths) ? $return : max($childrenDepths);
         }
 
         return $return;

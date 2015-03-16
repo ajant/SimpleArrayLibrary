@@ -33,7 +33,7 @@ class CountMinDepthTest extends PHPUnit_Framework_TestCase
             // #1 non-rectangular
             array(
                 array(
-                    'array'     => array(1, array(1)),
+                    'array'     => array(1, 2, array(1)),
                     'depth'     => 2,
                     'expResult' => 3
                 )
