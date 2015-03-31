@@ -172,5 +172,18 @@ used (===) when comparing array values, otherwise regular comparison is used (==
 ```
 SimpleArrayLibrary::isSubArray(array(2, 1), array(2)); // true
 SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)), array('c' => 1)); // false
-SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)),array('a' => 2)); // false
+SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)), array('a' => 2)); // false
+```
+castColumns
+------------------------------
+Attempts to cast specified columns in all rows of the two dimensional array to specified type. Allowed types are represented by
+constants: TYPE_INT, TYPE_STRING, TYPE_FLOAT, TYPE_BOOL, TYPE_ARRAY, TYPE_OBJECT. Any other type will cause exception to be thrown.
+User should know how type casting works in PHP as this method provides no protection from possible casting errors.
+
+Third parameter must be a boolean, otherwise exception is thrown. If third parameter is set to true, columns defined as keys in the
+second parameter have to be present, otherwise exception is thrown.
+```
+SimpleArrayLibrary::castColumns(array(array('a' => '2')), array('a' => SimpleArrayLibrary::TYPE_INT)); // array(array('a' => 2))
+SimpleArrayLibrary::castColumns(array(array()), array('a' => SimpleArrayLibrary::TYPE_INT), false); // array(array())
+SimpleArrayLibrary::castColumns(array(array('a' => '1'), array('b' => 'foo')), array('a' => SimpleArrayLibrary::TYPE_INT), false); // array(array('a' => 1), array('b' => 'foo'))
 ```

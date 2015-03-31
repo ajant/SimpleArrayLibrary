@@ -265,4 +265,58 @@ class SimpleArrayLibrary
 
         return $return;
     }
+
+    const TYPE_INT = 'int';
+    const TYPE_STRING = 'string';
+    const TYPE_FLOAT = 'float';
+    const TYPE_BOOL = 'bool';
+    const TYPE_ARRAY = 'array';
+    const TYPE_OBJECT = 'object';
+
+    /**
+     * @param array $matrix
+     * @param array $castMap
+     * @param bool  $allKeysMustBePresent
+     *
+     * @return array
+     */
+    public static function castColumns(array $matrix, array $castMap, $allKeysMustBePresent = true)
+    {
+        if (!is_bool($allKeysMustBePresent)) {
+            throw new InvalidArgumentException('Strict parameter must be a boolean');
+        }
+
+        foreach ($matrix as $key => $row) {
+            foreach ($castMap as $column => $type) {
+                if (isset($row[$column]) || array_key_exists($column, $row)) {
+                    switch ($type) {
+                        case self::TYPE_INT:
+                            $matrix[$key][$column] = (int)$row[$column];
+                            break;
+                        case self::TYPE_STRING:
+                            $matrix[$key][$column] = (string)$row[$column];
+                            break;
+                        case self::TYPE_FLOAT:
+                            $matrix[$key][$column] = (float)$row[$column];
+                            break;
+                        case self::TYPE_BOOL:
+                            $matrix[$key][$column] = (bool)$row[$column];
+                            break;
+                        case self::TYPE_ARRAY:
+                            $matrix[$key][$column] = (array)$row[$column];
+                            break;
+                        case self::TYPE_OBJECT:
+                            $matrix[$key][$column] = (object)$row[$column];
+                            break;
+                        default:
+                            throw new UnexpectedValueException('Invalid type: ' . $type);
+                    }
+                } elseif ($allKeysMustBePresent) {
+                    throw new UnexpectedValueException('Column: ' . $column . ' missing in row: ' . $key);
+                }
+            }
+        }
+
+        return $matrix;
+    }
 }
