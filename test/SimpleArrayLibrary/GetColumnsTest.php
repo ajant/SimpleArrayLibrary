@@ -1,6 +1,6 @@
 <?php
 
-use \SimpleArrayLibrary\SimpleArrayLibrary;
+use SimpleArrayLibrary\SimpleArrayLibrary;
 
 class GetColumnsTest extends PHPUnit_Framework_TestCase
 {

@@ -26,6 +26,23 @@ and you're ready to go.
 Usage examples
 ==============================
 For additional help, look at the tests, additional input scenarios are tested.
+addConfigRow
+------------------------------
+Method is intended to remove need for configuration files that need to be parsed into php arrays, since that carries significant performance
+penalties. It combines readability of ini file with speed of having configurations defined directly on php level.
+First parameter represents configuration array, second parameter represents a numerical array (in case of associative array, exception
+is thrown) of nested keys of the new configuration row. Third parameter represents the value that is being mapped.
+property, that is being added. Method returns configuration with the new row added, or throws exception if the same combination of
+keys has already been used.
+```
+SimpleArrayLibrary::addConfigRow(array('foo' => array('baz' => 1)), array('foo', 'bar'), 2); // array('foo' => array('baz' => 1, 'bar' => 2))
+$config = array();
+$config = SimpleArrayLibrary::addConfigRow($config, array('foo', 'bar'), new stdClass());
+$config = SimpleArrayLibrary::addConfigRow($config, array('foo', 'baz'), 1);
+$config = SimpleArrayLibrary::addConfigRow($config, array('foo', 3), array(1, 2));
+// $config = array('foo' => array('bar' => stdClass(), 'baz' => 1, 3 => array(1, 2)))
+$config = SimpleArrayLibrary::addConfigRow($config, array('foo', 3), false); // exception because of repeated  array('foo', 3) path
+```
 allElementsEqual
 ------------------------------
 Checks whether all elements of the array are equal and optionally if they are all equal to specified value.
@@ -34,6 +51,19 @@ SimpleArrayLibrary::allElementsEqual(array(1, 1)); // true
 SimpleArrayLibrary::allElementsEqual(array(1, 2)); // false
 SimpleArrayLibrary::allElementsEqual(array(1, 1), 1); // true
 SimpleArrayLibrary::allElementsEqual(array(1, 1), 2); // false
+```
+castColumns
+------------------------------
+Attempts to cast specified columns of all rows of the two dimensional array to specified type. Allowed types are represented by
+constants: TYPE_INT, TYPE_STRING, TYPE_FLOAT, TYPE_BOOL, TYPE_ARRAY, TYPE_OBJECT. Any other type will cause exception to be thrown.
+User should know how type casting works in PHP as this method provides no protection from possible casting errors.
+
+Third parameter must be a boolean, otherwise exception is thrown. If third parameter is set to true, columns defined as keys in the
+second parameter have to be present, otherwise exception is thrown.
+```
+SimpleArrayLibrary::castColumns(array(array('a' => '2')), array('a' => SimpleArrayLibrary::TYPE_INT)); // array(array('a' => 2))
+SimpleArrayLibrary::castColumns(array(array()), array('a' => SimpleArrayLibrary::TYPE_INT), false); // array(array())
+SimpleArrayLibrary::castColumns(array(array('a' => '1'), array('b' => 'foo')), array('a' => SimpleArrayLibrary::TYPE_INT), false); // array(array('a' => 1), array('b' => 'foo'))
 ```
 countMaxDepth
 ------------------------------
@@ -156,6 +186,20 @@ SimpleArrayLibrary::haveEqualValues(array('a' => 1), array(1)); // true
 SimpleArrayLibrary::haveEqualValues(array(), array()); // true
 SimpleArrayLibrary::haveEqualValues(array(1), array(2)); // false
 ```
+insertSubArray
+------------------------------
+Inserts the sub-array into the array in the place to which sub-array's keys point to
+
+Third and forth parameters must be booleans, otherwise exception is thrown. If third parameter is set to true, insertion will overwrite
+existing value inside the array, pointed to the sub-array's keys, if any. If third parameter is set to true, forth parameter is not used.
+If forth parameter is set to true nad third parameter is set to false, existing value will be left unchanged, but if both third and
+forth parameters were set to false and sub-array keys point to already existing value, exception will be thrown
+```
+SimpleArrayLibrary::insertSubArray(array('foo' => 1), array('bar' => 2)); // array('foo' => 1, 'bar' => 2)
+SimpleArrayLibrary::insertSubArray(array('foo' => 1), array('foo' => 2), true, false); // array('foo' => 2)
+SimpleArrayLibrary::insertSubArray(array('foo' => 1), array('foo' => 2), false, true); // array('foo' => 1)
+SimpleArrayLibrary::insertSubArray(array('foo' => 1), array('foo' => 2), false, false); // exception
+```
 isAssociative
 ------------------------------
 Checks whether array has any associative keys.
@@ -174,16 +218,16 @@ SimpleArrayLibrary::isSubArray(array(2, 1), array(2)); // true
 SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)), array('c' => 1)); // false
 SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)), array('a' => 2)); // false
 ```
-castColumns
+setColumn
 ------------------------------
-Attempts to cast specified columns in all rows of the two dimensional array to specified type. Allowed types are represented by
-constants: TYPE_INT, TYPE_STRING, TYPE_FLOAT, TYPE_BOOL, TYPE_ARRAY, TYPE_OBJECT. Any other type will cause exception to be thrown.
-User should know how type casting works in PHP as this method provides no protection from possible casting errors.
+Sets values to columns of the multi-dimensional array (is meant for two-dimensional arrays in particular, will work for three or more
+dimension, but will only change elements on the second level) to the specified value
 
-Third parameter must be a boolean, otherwise exception is thrown. If third parameter is set to true, columns defined as keys in the
-second parameter have to be present, otherwise exception is thrown.
+Forth and fifth parameters must be booleans, otherwise exception is thrown. If forth parameter is set to true, column will be added to
+the rows in which it's missing. If fifth parameter is set to true, value of the column will be overwritten in rows in which it already
+exists
 ```
-SimpleArrayLibrary::castColumns(array(array('a' => '2')), array('a' => SimpleArrayLibrary::TYPE_INT)); // array(array('a' => 2))
-SimpleArrayLibrary::castColumns(array(array()), array('a' => SimpleArrayLibrary::TYPE_INT), false); // array(array())
-SimpleArrayLibrary::castColumns(array(array('a' => '1'), array('b' => 'foo')), array('a' => SimpleArrayLibrary::TYPE_INT), false); // array(array('a' => 1), array('b' => 'foo'))
+SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1); // array(array('foo' => 1), array('foo' => 1))
+SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1, false, false); // array(array('foo' => 2), array())
+SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1, true, false); // array(array('foo' => 2), array('foo' => 1))
 ```

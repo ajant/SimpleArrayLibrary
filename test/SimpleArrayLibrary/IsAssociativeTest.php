@@ -1,6 +1,6 @@
 <?php
 
-use \SimpleArrayLibrary\SimpleArrayLibrary;
+use SimpleArrayLibrary\SimpleArrayLibrary;
 
 class IsAssociativeTest extends PHPUnit_Framework_TestCase
 {

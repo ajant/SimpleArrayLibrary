@@ -1,6 +1,6 @@
 <?php
 
-use \SimpleArrayLibrary\SimpleArrayLibrary;
+use SimpleArrayLibrary\SimpleArrayLibrary;
 
 class CountMaxDepthXTest extends PHPUnit_Framework_TestCase
 {
