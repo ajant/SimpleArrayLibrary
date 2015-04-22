@@ -42,15 +42,6 @@ class DeleteColumnsXTest extends PHPUnit_Framework_TestCase
                     'exception'    => 'InvalidArgumentException',
                     'errorMessage' => 'Invalid column'
                 )
-            ),
-            // #2 invalid columns list
-            array(
-                array(
-                    'matrix'       => array(array()),
-                    'columns'      => 'foo',
-                    'exception'    => 'InvalidArgumentException',
-                    'errorMessage' => 'Invalid column'
-                )
             )
         );
     }
