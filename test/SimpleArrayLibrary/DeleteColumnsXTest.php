@@ -29,7 +29,7 @@ class DeleteColumnsXTest extends PHPUnit_Framework_TestCase
             array(
                 array(
                     'matrix'       => array(),
-                    'columns'      => 'foo',
+                    'columns'      => array('foo'),
                     'exception'    => 'UnexpectedValueException',
                     'errorMessage' => 'Can not delete columns on one dimensional array'
                 )
@@ -47,7 +47,7 @@ class DeleteColumnsXTest extends PHPUnit_Framework_TestCase
             array(
                 array(
                     'matrix'       => array(array()),
-                    'column'       => 'foo',
+                    'columns'      => 'foo',
                     'exception'    => 'InvalidArgumentException',
                     'errorMessage' => 'Invalid column'
                 )

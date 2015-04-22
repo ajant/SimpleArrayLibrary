@@ -26,7 +26,7 @@ class DeleteColumnsTest extends PHPUnit_Framework_TestCase
             array(
                 array(
                     'matrix'    => array(array('foo' => 2, 'bar' => 1), array('bar' => 1)),
-                    'columns'   => ['foo'],
+                    'columns'   => array('foo'),
                     'expResult' => array(array('bar' => 1), array('bar' => 1))
                 )
             ),
@@ -34,7 +34,7 @@ class DeleteColumnsTest extends PHPUnit_Framework_TestCase
             array(
                 array(
                     'matrix'    => array(array('foo' => 2, 'bar' => 1), array('bar' => 1), array()),
-                    'columns'   => ['foo', 'bar'],
+                    'columns'   => array('foo', 'bar'),
                     'expResult' => array(array(), array(), array())
                 )
             )
