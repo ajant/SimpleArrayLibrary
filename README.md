@@ -99,6 +99,15 @@ SimpleArrayLibrary::countMinDepth(
 SimpleArrayLibrary::countMinDepth(1); // 0
 SimpleArrayLibrary::countMinDepth(array(), 1); // 2
 ```
+deleteColumns
+------------------------------
+Deletes values to columns of the multi-dimensional array (is meant for two-dimensional arrays in particular, will work for three or more
+dimension, but will only change elements on the second level, is not recursive)
+```
+SimpleArrayLibrary::deleteColumns(array(array('foo' => 2), array()), array('foo')); // array(array(), array())
+SimpleArrayLibrary::deleteColumns(array(array(), array()), array('foo')); // array(array(), array())
+SimpleArrayLibrary::deleteColumns(array(array('foo' => 2, 'bar' => 1), array()), array('foo', 'bar')); // array(array(), array())
+```
 getColumns
 ------------------------------
 Retrieves values of required columns out of the multi-dimensional array.

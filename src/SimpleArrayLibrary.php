@@ -174,6 +174,32 @@ class SimpleArrayLibrary
     }
 
     /**
+     * @param array $matrix
+     * @param mixed $columns
+     *
+     * @return array
+     */
+    public static function deleteColumns(array $matrix, array $columns)
+    {
+        // validate input
+        if (self::countMinDepth($matrix) < 2) {
+            throw new UnexpectedValueException('Can not delete columns on one dimensional array');
+        }
+        if (self::countMinDepth($columns) != 1) {
+            throw new InvalidArgumentException('Invalid column');
+        }
+
+        // remove columns in every row
+        foreach ($matrix as $key => $row) {
+            foreach ($columns as $column) {
+                unset($matrix[$key][$column]);
+            }
+        }
+
+        return $matrix;
+    }
+
+    /**
      * Extracts a column from an array
      *
      * @param array $array

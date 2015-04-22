@@ -25,7 +25,7 @@ class SetColumnXTest extends PHPUnit_Framework_TestCase
     public function getData()
     {
         return array(
-            // #0 invalid insertIfMissing parameter
+            // #0 not a matrix
             array(
                 array(
                     'matrix'          => array(),
@@ -36,7 +36,7 @@ class SetColumnXTest extends PHPUnit_Framework_TestCase
                     'errorMessage'    => 'Can not set columns on one dimensional array'
                 )
             ),
-            // #1 input array one dimensional, no columns to speak of
+            // #1 invalid column
             array(
                 array(
                     'matrix'          => array(array()),
@@ -47,7 +47,7 @@ class SetColumnXTest extends PHPUnit_Framework_TestCase
                     'errorMessage'    => 'Invalid column'
                 )
             ),
-            // #2 invalid cast type
+            // #2 invalid insertIfMissing parameter
             array(
                 array(
                     'matrix'          => array(array()),
@@ -58,7 +58,7 @@ class SetColumnXTest extends PHPUnit_Framework_TestCase
                     'errorMessage'    => 'Insert if missing indicator must be a boolean'
                 )
             ),
-            // #3 all columns must be present, but a column is missing on some of the rows
+            // #3 invalid overwrite parameter
             array(
                 array(
                     'matrix'          => array(array()),
