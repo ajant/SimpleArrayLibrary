@@ -34,7 +34,7 @@ First parameter represents configuration array, second parameter represents a nu
 is thrown) of nested keys of the new configuration row. Third parameter represents the value that is being mapped.
 property, that is being added. Method returns configuration with the new row added, or throws exception if the same combination of
 keys has already been used.
-```
+```php
 SimpleArrayLibrary::addConfigRow(array('foo' => array('baz' => 1)), array('foo', 'bar'), 2); // array('foo' => array('baz' => 1, 'bar' => 2))
 $config = array();
 $config = SimpleArrayLibrary::addConfigRow($config, array('foo', 'bar'), new stdClass());
@@ -46,7 +46,7 @@ $config = SimpleArrayLibrary::addConfigRow($config, array('foo', 3), false); // 
 allElementsEqual
 ------------------------------
 Checks whether all elements of the array are equal and optionally if they are all equal to specified value.
-```
+```php
 SimpleArrayLibrary::allElementsEqual(array(1, 1)); // true
 SimpleArrayLibrary::allElementsEqual(array(1, 2)); // false
 SimpleArrayLibrary::allElementsEqual(array(1, 1), 1); // true
@@ -60,7 +60,7 @@ User should know how type casting works in PHP as this method provides no protec
 
 Third parameter must be a boolean, otherwise exception is thrown. If third parameter is set to true, columns defined as keys in the
 second parameter have to be present, otherwise exception is thrown.
-```
+```php
 SimpleArrayLibrary::castColumns(array(array('a' => '2')), array('a' => SimpleArrayLibrary::TYPE_INT)); // array(array('a' => 2))
 SimpleArrayLibrary::castColumns(array(array()), array('a' => SimpleArrayLibrary::TYPE_INT), false); // array(array())
 SimpleArrayLibrary::castColumns(array(array('a' => '1'), array('b' => 'foo')), array('a' => SimpleArrayLibrary::TYPE_INT), false); // array(array('a' => 1), array('b' => 'foo'))
@@ -71,7 +71,7 @@ Count maximum depth of the array (number of nested sub-arrays) recursively.
 
 Second parameter must be an integer, or exception is thrown.
 This is a recursive method, second parameter is used for recursive calls and should not be used from the outside of the method.
-```
+```php
 SimpleArrayLibrary::countMaxDepth(array()); // 1
 SimpleArrayLibrary::countMaxDepth(
     array(
@@ -88,7 +88,7 @@ Count minimum depth of the array (number of nested sub-arrays) recursively.
 
 Second parameter must be an integer, or exception is thrown.
 This is a recursive method, second parameter is used for recursive calls and should not be used from the outside of the method.
-```
+```php
 SimpleArrayLibrary::countMinDepth(array()); // 1
 SimpleArrayLibrary::countMinDepth(
     array(
@@ -103,7 +103,7 @@ deleteColumns
 ------------------------------
 Deletes values to columns of the multi-dimensional array (is meant for two-dimensional arrays in particular, will work for three or more
 dimension, but will only change elements on the second level, is not recursive)
-```
+```php
 SimpleArrayLibrary::deleteColumns(array(array('foo' => 2), array()), array('foo')); // array(array(), array())
 SimpleArrayLibrary::deleteColumns(array(array(), array()), array('foo')); // array(array(), array())
 SimpleArrayLibrary::deleteColumns(array(array('foo' => 2, 'bar' => 1), array()), array('foo', 'bar')); // array(array(), array())
@@ -117,7 +117,7 @@ First parameter must be array of arrays (matrix) otherwise it makes no sense to 
 Second parameter must be an array of elements that could be used as array indexes, otherwise exception is thrown.
 
 Third parameter must be a boolean, otherwise exception is thrown.
-```
+```php
 SimpleArrayLibrary::getColumns(
     array(
         array('a' => 1),
@@ -146,7 +146,7 @@ getRectangularDimensions
 ------------------------------
 This method checks if array is "rectangular" or in other words, whether all sub-arrays have equal number of elements,
 recursively, and how many elements there are at each level of recursion, if it is rectangular.
-```
+```php
 SimpleArrayLibrary::getRectangularDimensions(array(1)); // array(1)
 SimpleArrayLibrary::getRectangularDimensions(array(1, array(1))); // -1, not "rectangular"
 SimpleArrayLibrary::getRectangularDimensions(
@@ -166,7 +166,7 @@ SimpleArrayLibrary::getRectangularDimensions(
 hasAllKeys
 ------------------------------
 Checks if all required keys are present inside an array, regardless of values.
-```
+```php
 SimpleArrayLibrary::hasAllKeys(array('a' => 1), array('a')); // true
 SimpleArrayLibrary::hasAllKeys(array(), array()); // true
 SimpleArrayLibrary::hasAllKeys(array('b' => 1), array('a', 'b')); // false
@@ -174,7 +174,7 @@ SimpleArrayLibrary::hasAllKeys(array('b' => 1), array('a', 'b')); // false
 hasAllValues
 ------------------------------
 Checks if all required values are present inside an array, regardless of keys.
-```
+```php
 SimpleArrayLibrary::hasAllValues(array('a' => 1), array(1)); // true
 SimpleArrayLibrary::hasAllValues(array(), array()); // true
 SimpleArrayLibrary::hasAllValues(array('b', 1), array('a', 'b')); // false
@@ -182,7 +182,7 @@ SimpleArrayLibrary::hasAllValues(array('b', 1), array('a', 'b')); // false
 haveEqualKeys
 ------------------------------
 Checks if two arrays have equal keys, regardless of values.
-```
+```php
 SimpleArrayLibrary::haveEqualKeys(array('a' => 1), array('a' => 2)); // true
 SimpleArrayLibrary::haveEqualKeys(array(), array()); // true
 SimpleArrayLibrary::haveEqualKeys(array(1, 'a' => 1), array(2)); // false
@@ -190,7 +190,7 @@ SimpleArrayLibrary::haveEqualKeys(array(1, 'a' => 1), array(2)); // false
 haveEqualValues
 ------------------------------
 Checks if two arrays have equal values, regardless of keys.
-```
+```php
 SimpleArrayLibrary::haveEqualValues(array('a' => 1), array(1)); // true
 SimpleArrayLibrary::haveEqualValues(array(), array()); // true
 SimpleArrayLibrary::haveEqualValues(array(1), array(2)); // false
@@ -203,7 +203,7 @@ Third and forth parameters must be booleans, otherwise exception is thrown. If t
 existing value inside the array, pointed to the sub-array's keys, if any. If third parameter is set to true, forth parameter is not used.
 If forth parameter is set to true nad third parameter is set to false, existing value will be left unchanged, but if both third and
 forth parameters were set to false and sub-array keys point to already existing value, exception will be thrown
-```
+```php
 SimpleArrayLibrary::insertSubArray(array('foo' => 1), array('bar' => 2)); // array('foo' => 1, 'bar' => 2)
 SimpleArrayLibrary::insertSubArray(array('foo' => 1), array('foo' => 2), true, false); // array('foo' => 2)
 SimpleArrayLibrary::insertSubArray(array('foo' => 1), array('foo' => 2), false, true); // array('foo' => 1)
@@ -212,7 +212,7 @@ SimpleArrayLibrary::insertSubArray(array('foo' => 1), array('foo' => 2), false, 
 isAssociative
 ------------------------------
 Checks whether array has any associative keys.
-```
+```php
 SimpleArrayLibrary::isAssociative(array('a' => 1, array(1))); // true
 SimpleArrayLibrary::isAssociative(array(1, 1)); // false
 ```
@@ -222,7 +222,7 @@ Checks whether array is sub-array of the other array (whether all key-value pair
 
 Third parameter must be a boolean, otherwise exception is thrown. If third parameter is set to true, strict comparison is
 used (===) when comparing array values, otherwise regular comparison is used (==).
-```
+```php
 SimpleArrayLibrary::isSubArray(array(2, 1), array(2)); // true
 SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)), array('c' => 1)); // false
 SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)), array('a' => 2)); // false
@@ -235,7 +235,7 @@ dimension, but will only change elements on the second level) to the specified v
 Forth and fifth parameters must be booleans, otherwise exception is thrown. If forth parameter is set to true, column will be added to
 the rows in which it's missing. If fifth parameter is set to true, value of the column will be overwritten in rows in which it already
 exists
-```
+```php
 SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1); // array(array('foo' => 1), array('foo' => 1))
 SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1, false, false); // array(array('foo' => 2), array())
 SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1, true, false); // array(array('foo' => 2), array('foo' => 1))
