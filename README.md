@@ -1,6 +1,7 @@
 SimpleArrayLibrary
 ==============================
 [![Build Status](https://travis-ci.org/ajant/SimpleArrayLibrary.svg?branch=master)](https://travis-ci.org/ajant/SimpleArrayLibrary)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/ajant/SimpleArrayLibrary/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/ajant/SimpleArrayLibrary/?branch=master)
 
 Library containing convenient array handling methods.
 These are methods that I needed to create for myself during work on various projects, If you have any methods you'd like to see added, let me know:
