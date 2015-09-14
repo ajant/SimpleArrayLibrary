@@ -4,9 +4,9 @@ php:
   - 5.5
 
 before_script:
-  - composer install
-  - composer require satooshi/php-coveralls:~0.6@stable  - mkdir -p build/logs
   - mkdir -p build/logs
+  - composer require satooshi/php-coveralls:~0.6@stable
+  - composer install
 
 script:
   - vendor/phpunit/phpunit/phpunit --coverage-clover build/logs/clover.xml test/
