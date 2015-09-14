@@ -5,7 +5,7 @@ php:
 
 before_script:
   - mkdir -p build/logs
-  - composer require satooshi/php-coveralls: "dev-master"
+  - composer require "satooshi/php-coveralls": "dev-master"
   - composer install
 
 script:
