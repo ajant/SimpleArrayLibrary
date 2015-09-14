@@ -1,25 +1,25 @@
 {
-    "name": "ajant/simple-array-library",
-    "description": "Simple array utilities library",
-    "authors": [
-        {
-            "name": "Jovanovic Aleksandar",
-            "email": "ajant.github@gmail.com"
-        }
-    ],
-    "license": "MIT",
-    "description": "Simple library containing convenient array handling methods",
-    "homepage": "https://github.com/ajant/SimpleArrayLibrary",
-    "minimum-stability": "stable",
-    "require": {
-	    "php": ">=5.4.0"
-    },
-    "require-dev": {
-	    "phpunit/phpunit": "4.*"
-    },
-    "autoload": {
-    	"psr-4": {
-    		"SimpleArrayLibrary\\": "src"
-    	}
+  "name": "ajant/simple-array-library",
+  "authors": [
+    {
+      "name": "Jovanovic Aleksandar",
+      "email": "ajant.github@gmail.com"
     }
+  ],
+  "license": "MIT",
+  "description": "Simple library containing convenient array handling methods",
+  "homepage": "https://github.com/ajant/SimpleArrayLibrary",
+  "minimum-stability": "stable",
+  "require": {
+    "php": ">=5.4.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.*",
+    "satooshi/php-coveralls": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "SimpleArrayLibrary\\": "src"
+    }
+  }
 }
