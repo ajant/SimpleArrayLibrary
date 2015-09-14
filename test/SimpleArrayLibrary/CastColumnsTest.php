@@ -56,6 +56,15 @@ class CastColumnsTest extends PHPUnit_Framework_TestCase
                     'allKeysMustBePresent' => true,
                     'expResult' => array(array('column1' => 1.1, 'column2' => $object1), array('column1' => 1, 'column2' => $object2))
                 )
+            ),
+            // #3 empty matrix
+            array(
+                array(
+                    'matrix'    => array(),
+                    'columns'   => array('column1' => SimpleArrayLibrary::TYPE_FLOAT, 'column2' => SimpleArrayLibrary::TYPE_OBJECT),
+                    'allKeysMustBePresent' => true,
+                    'expResult' => array()
+                )
             )
         );
     }

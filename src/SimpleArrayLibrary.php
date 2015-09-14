@@ -77,6 +77,9 @@ class SimpleArrayLibrary
         if (!is_bool($allKeysMustBePresent)) {
             throw new InvalidArgumentException('Third parameter must be a boolean');
         }
+        if (empty($matrix)) {
+            return $matrix;
+        }
         if (self::countMinDepth($matrix) < 2) {
             throw new UnexpectedValueException('Can not cast columns on one dimensional array');
         }
