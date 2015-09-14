@@ -36,11 +36,25 @@ class GetRectangularDimensionsTest extends PHPUnit_Framework_TestCase
                     'expResult' => -1
                 )
             ),
-            // #2 3 levels: 4 elements on the deepest level, 1 element on middle level, 3 on the shallowes
+            // #2 3 levels: 4 elements on the deepest level, 1 element on middle level, 3 on the shallowest
             array(
                 array(
                     'array'     => array(array(array(1, 2, 3, 4)), array(array(1, 2, 3, 4)), array(array(1, 2, 3, 4))),
                     'expResult' => array(4, 1, 3)
+                )
+            ),
+            // #3 not rectangular on lower level
+            array(
+                array(
+                    'array'     => array(array(1, 1, 1), array(1, 2, 2, 1)),
+                    'expResult' => -1
+                )
+            ),
+            // #4 one of sub arrays not rectangular
+            array(
+                array(
+                    'array'     => array(array(array(1, 2), array(1)), array(array(1), array(1))),
+                    'expResult' => -1
                 )
             )
         );
