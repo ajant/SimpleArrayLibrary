@@ -292,6 +292,19 @@ class SimpleArrayLibrary
     }
 
     /**
+     * Checks whether array has only provided keys as indexes
+     *
+     * @param array $array
+     * @param array $keys
+     *
+     * @return bool
+     */
+    public static function hasOnlyKeys(array $array, array $keys)
+    {
+        return self::haveEqualKeys($array, array_flip($keys));
+    }
+
+    /**
      * Checks if $array's keys contain all of $subArray's values
      *
      * @param array $array
