@@ -38,17 +38,17 @@ class SimpleArrayLibrary
      *
      * @return boolean
      */
-    public static function allElementsEqual(array $array, $value = null)
+    public static function allElementsEqual(array $haystack, $needle = null)
     {
         $return = true;
         // if both arguments have been passed, use value argument (regardless of whether it is null or not
         if (func_num_args() == 2) {
-            $compareAgainst = $value;
+            $compareAgainst = $needle;
         } // only one argument has been passed, so compare elements only to each other
         else {
-            $compareAgainst = reset($array);
+            $compareAgainst = reset($haystack);
         }
-        foreach ($array as $element) {
+        foreach ($haystack as $element) {
             if ($compareAgainst != $element) {
                 $return = false;
                 break;
