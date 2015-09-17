@@ -33,8 +33,8 @@ class SimpleArrayLibrary
     /**
      * Checks if all elements of the array have same value
      *
-     * @param array $array
-     * @param mixed $value
+     * @param array $haystack
+     * @param mixed $needle
      *
      * @return boolean
      */
