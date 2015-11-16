@@ -456,6 +456,34 @@ class SimpleArrayLibrary
     }
 
     /**
+     * Selects random sub array
+     *
+     * @param array $array
+     * @param int $numberOfRequiredElements
+     *
+     * @return array
+     * @throws InvalidArgumentException
+     */
+    public static function selectRandomArrayElements(array $array, $numberOfRequiredElements)
+    {
+        // validation, must be positive int or 0
+        if (!preg_match('/^[1-9]\d*$/', $numberOfRequiredElements)) {
+            throw new InvalidArgumentException('Number of requested elements parameter must be a positive integer');
+        }
+
+        $selected = $array;
+        if (count($array) > $numberOfRequiredElements) {
+            // select required number of random keys
+            $selectedKeys = array_rand($array, $numberOfRequiredElements);
+            $selectedKeys = $numberOfRequiredElements == 1 ? [$selectedKeys] : $selectedKeys;
+            // select only array members with selected random keys
+            $selected = array_intersect_key($array, array_fill_keys($selectedKeys, null));
+        }
+
+        return $selected;
+    }
+
+    /**
      * @param array $matrix
      * @param mixed $column
      * @param mixed $value

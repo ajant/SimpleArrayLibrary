@@ -253,6 +253,17 @@ SimpleArrayLibrary::isSubArray(array(2, 1), array(2)); // true
 SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)), array('c' => 1)); // false
 SimpleArrayLibrary::isSubArray(array('a' => 1, 'b' => array(1)), array('a' => 2)); // false
 ```
+selectRandomArrayElements
+------------------------------
+Select sub-array of random elements. Keys association is preserved. If required number of random elements is equal or bigger then number
+of original array members, entire array is returned.
+
+Second parameter must be positive integer or string representation of the positive integer, otherwise exception is thrown.  
+```php
+SimpleArrayLibrary::selectRandomArrayElements(array('foo' => 2), 1); // array('foo' => 2)
+SimpleArrayLibrary::selectRandomArrayElements(array(1, 2), 1); // array(1) OR array(1 => 2)
+SimpleArrayLibrary::selectRandomArrayElements(array('foo' => 2, 'bar'), 3); // array('foo' => 2, 'bar')
+```
 setColumn
 ------------------------------
 Sets values to columns of the multi-dimensional array (is meant for two-dimensional arrays in particular, will work for three or more
