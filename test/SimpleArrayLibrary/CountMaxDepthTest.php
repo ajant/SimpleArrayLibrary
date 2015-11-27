@@ -13,7 +13,7 @@ class CountMaxDepthTest extends PHPUnit_Framework_TestCase
     public function test_function(array $data)
     {
         // invoke logic & test
-        $this->assertEquals($data['expResult'], SimpleArrayLibrary::countMaxDepth($data['array'], $data['depth']));
+        $this->assertEquals($data['expResult'], SimpleArrayLibrary::countMaxDepth($data['array']));
     }
 
     /**
@@ -26,24 +26,14 @@ class CountMaxDepthTest extends PHPUnit_Framework_TestCase
             array(
                 array(
                     'array'     => array(),
-                    'depth'     => 1,
-                    'expResult' => 2
+                    'expResult' => 1
                 )
             ),
             // #1 non-rectangular
             array(
                 array(
                     'array'     => array(1, 2, array(1)),
-                    'depth'     => 0,
                     'expResult' => 2
-                )
-            ),
-            // #2 non-array
-            array(
-                array(
-                    'array'     => 1,
-                    'depth'     => 1,
-                    'expResult' => 1
                 )
             )
         );

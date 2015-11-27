@@ -119,32 +119,24 @@ class SimpleArrayLibrary
     }
 
     /**
-     * Counts maximum array depth
+     * Counts maximum array depth recursively
      *
-     * @param mixed $potentialArray
-     * @param int   $depth
+     * @param array $array
      *
      * @return int
-     * @throws InvalidArgumentException
      */
-    public static function countMaxDepth($potentialArray, $depth = 0)
+    public static function countMaxDepth(array $array)
     {
-        // validation, must be positive int or 0
-        if (!is_int($depth) || $depth < 0) {
-            throw new InvalidArgumentException('Depth parameter must be an integer');
-        }
-
-        $return = $depth;
-        if (is_array($potentialArray)) {
-            $return++;
-            $childrenDepths = array();
-            foreach ($potentialArray as $element) {
-                $childrenDepths[] = self::countMaxDepth($element, $return);
+        $maxDepth = 1;
+        foreach ($array as $element) {
+            $depth = 1;
+            if (is_array($element)) {
+                $depth += self::countMaxDepth($element);
             }
-            $return = empty($childrenDepths) ? $return : max($childrenDepths);
+            if ($depth > $maxDepth) $maxDepth = $depth;
         }
 
-        return $return;
+        return $maxDepth;
     }
 
     /**

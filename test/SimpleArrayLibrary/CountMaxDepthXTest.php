@@ -10,9 +10,13 @@ class CountMaxDepthXTest extends PHPUnit_Framework_TestCase
     public function test_function()
     {
         // prepare
-        $this->setExpectedException('InvalidArgumentException', 'Depth parameter must be an integer');
+        $this->setExpectedException(
+            get_class(new PHPUnit_Framework_Error("", 0, "", 1))
+        );
 
         // invoke logic & test
-        SimpleArrayLibrary::countMaxDepth('a', 'z');
+        SimpleArrayLibrary::countMaxDepth('a'); //This throws a Catchable fatal error
+
+        $this->fail('Expected exception');
     }
 }
