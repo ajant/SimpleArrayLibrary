@@ -140,6 +140,39 @@ class SimpleArrayLibrary
     }
 
     /**
+     * Counts maximum array depth iteratively
+     *
+     * @param array $array
+     *
+     * @return int
+     */
+    public static function countMaxDepthIterative(array $array)
+    {
+        $copy     = $array;
+        $maxDepth = 1;
+
+        foreach ($copy as $element) {
+            $depth = 1;
+            while (!empty($element)) {
+                if (is_array($element)) {
+                    ++$depth;
+                    $tmp = array_shift($element);
+                    if (is_array($tmp)) {
+                        array_push($element, array_shift($tmp));
+                    }
+                } else {
+                    break;
+                }
+            }
+            if ($depth > $maxDepth) {
+                $maxDepth = $depth;
+            }
+        }
+
+        return $maxDepth;
+    }
+
+    /**
      * Counts maximum array depth
      *
      * @param mixed $potentialArray
