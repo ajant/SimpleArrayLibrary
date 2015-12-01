@@ -2,7 +2,7 @@
 
 use SimpleArrayLibrary\SimpleArrayLibrary;
 
-class CountMaxDepthTest extends PHPUnit_Framework_TestCase
+class CountMaxDepthIterativeTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @param array $data
@@ -13,7 +13,7 @@ class CountMaxDepthTest extends PHPUnit_Framework_TestCase
     public function test_function(array $data)
     {
         // invoke logic & test
-        $this->assertEquals($data['expResult'], SimpleArrayLibrary::countMaxDepth($data['array']));
+        $this->assertEquals($data['expResult'], SimpleArrayLibrary::countMaxDepthIterative($data['array']));
     }
 
     /**

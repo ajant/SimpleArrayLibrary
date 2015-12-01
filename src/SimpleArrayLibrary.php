@@ -119,32 +119,57 @@ class SimpleArrayLibrary
     }
 
     /**
-     * Counts maximum array depth
+     * Counts maximum array depth recursively
      *
-     * @param mixed $potentialArray
-     * @param int   $depth
+     * @param array $array
      *
      * @return int
-     * @throws InvalidArgumentException
      */
-    public static function countMaxDepth($potentialArray, $depth = 0)
+    public static function countMaxDepth(array $array)
     {
-        // validation, must be positive int or 0
-        if (!preg_match('/^[1-9]\d*$|^0$/', $depth)) {
-            throw new InvalidArgumentException('Depth parameter must be an integer');
-        }
-
-        $return = $depth;
-        if (is_array($potentialArray)) {
-            $return++;
-            $childrenDepths = array();
-            foreach ($potentialArray as $element) {
-                $childrenDepths[] = self::countMaxDepth($element, $return);
+        $maxDepth = 1;
+        foreach ($array as $element) {
+            $depth = 1;
+            if (is_array($element)) {
+                $depth += self::countMaxDepth($element);
             }
-            $return = empty($childrenDepths) ? $return : max($childrenDepths);
+            if ($depth > $maxDepth) $maxDepth = $depth;
         }
 
-        return $return;
+        return $maxDepth;
+    }
+
+    /**
+     * Counts maximum array depth iteratively
+     *
+     * @param array $array
+     *
+     * @return int
+     */
+    public static function countMaxDepthIterative(array $array)
+    {
+        $copy     = $array;
+        $maxDepth = 1;
+
+        foreach ($copy as $element) {
+            $depth = 1;
+            while (!empty($element)) {
+                if (is_array($element)) {
+                    ++$depth;
+                    $tmp = array_shift($element);
+                    if (is_array($tmp)) {
+                        array_push($element, array_shift($tmp));
+                    }
+                } else {
+                    break;
+                }
+            }
+            if ($depth > $maxDepth) {
+                $maxDepth = $depth;
+            }
+        }
+
+        return $maxDepth;
     }
 
     /**
