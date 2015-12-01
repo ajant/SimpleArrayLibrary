@@ -348,36 +348,6 @@ class SimpleArrayLibrary
     /**
      * Checks if two arrays have all equal keys
      *
-     * @deprecated
-     *
-     * @param array $array1
-     * @param array $array2
-     *
-     * @return boolean
-     */
-    public static function haveEqualKeys(array $array1, array $array2)
-    {
-        return self::hasAllKeys($array1, array_keys($array2)) && self::hasAllKeys($array2, array_keys($array1)) ? true : false;
-    }
-
-    /**
-     * Check if two arrays have all equal values
-     *
-     * @deprecated
-     *
-     * @param array $array1
-     * @param array $array2
-     *
-     * @return bool
-     */
-    public static function haveEqualValues($array1, $array2)
-    {
-        return self::hasAllValues($array1, $array2) && self::hasAllValues($array2, $array1) ? true : false;
-    }
-
-    /**
-     * Checks if two arrays have all equal keys
-     *
      * @param array $array1
      * @param array $array2
      *
