@@ -184,7 +184,7 @@ class SimpleArrayLibrary
     public static function countMinDepth($potentialArray, $depth = 0)
     {
         // validation, must be positive int or 0
-        if (!is_int($depth) || $depth < 0) {
+        if (!preg_match('/^[1-9]\d*$|^0$/', $depth)) {
             throw new InvalidArgumentException('Depth parameter must be an integer');
         }
 
