@@ -184,8 +184,11 @@ class SimpleArrayLibrary
     public static function countMinDepth($potentialArray, $depth = 0)
     {
         // validation, must be positive int or 0
-        if (!preg_match('/^[1-9]\d*$|^0$/', $depth)) {
-            throw new InvalidArgumentException('Depth parameter must be an integer');
+        if (!self::isLogicallyCastableToInt($depth)) {
+            throw new InvalidArgumentException('Depth parameter must be non-negative integer');
+        }
+        if ($depth < 0) {
+            throw new InvalidArgumentException('Depth parameter must be non-negative integer');
         }
 
         $return = $depth;
@@ -492,7 +495,10 @@ class SimpleArrayLibrary
     public static function selectRandomArrayElements(array $array, $numberOfRequiredElements)
     {
         // validation, must be positive int or 0
-        if (!preg_match('/^[1-9]\d*$/', $numberOfRequiredElements)) {
+        if (!self::isLogicallyCastableToInt($numberOfRequiredElements)) {
+            throw new InvalidArgumentException('Number of requested elements parameter must be a positive integer');
+        }
+        if ($numberOfRequiredElements <= 0) {
             throw new InvalidArgumentException('Number of requested elements parameter must be a positive integer');
         }
 
@@ -542,5 +548,17 @@ class SimpleArrayLibrary
         }
 
         return $matrix;
+    }
+
+    /**
+     * Check whether casting a variable to int would conway useful information
+     *
+     * @param mixed $input
+     *
+     * @return bool
+     */
+    private static function isLogicallyCastableToInt($input)
+    {
+        return !is_bool($input) && filter_var($input, FILTER_VALIDATE_INT) !== false;
     }
 }

@@ -5,9 +5,10 @@ use SimpleArrayLibrary\SimpleArrayLibrary;
 class SelectRandomArrayElementsXTest extends PHPUnit_Framework_TestCase
 {
     /**
-     * @dataProvider getData
+     * @param array $data
      *
      * @return void
+     * @dataProvider getData
      */
     public function test_function(array $data)
     {

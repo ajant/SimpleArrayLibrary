@@ -35,6 +35,13 @@ class CountMaxDepthIterativeTest extends PHPUnit_Framework_TestCase
                     'array'     => array(1, 2, array(1)),
                     'expResult' => 2
                 )
+            ),
+            // #2 non-rectangular
+            array(
+                array(
+                    'array'     => array(array(1), array(array(2))),
+                    'expResult' => 3
+                )
             )
         );
     }
