@@ -69,20 +69,21 @@ SimpleArrayLibrary::castColumns(array(array('a' => '1'), array('b' => 'foo')), a
 ```
 countMaxDepth
 ------------------------------
-Count maximum depth of the array (number of nested sub-arrays) recursively.
-
-Second parameter must be an integer, or exception is thrown.
-This is a recursive method, second parameter is used for recursive calls and should not be used from the outside of the method.
+Count maximum depth of the array (number of nested sub-arrays) recursively. Library contains [non-recursive method](https://github.com/ajant/SimpleArrayLibrary/blob/master/README.md#countmaxdepthiterative) doing th same 
+thing. Recursive method is faster, but in case of very deep arrays may cause memory usage problems.
 ```php
 SimpleArrayLibrary::countMaxDepth(array()); // 1
-SimpleArrayLibrary::countMaxDepth(
-    array(
-        1,
-        array()
-    )
-); // 2
-SimpleArrayLibrary::countMaxDepth(1); // 0
-SimpleArrayLibrary::countMaxDepth(array(), 1); // 2
+SimpleArrayLibrary::countMaxDepth(array(1, array())); // 2
+SimpleArrayLibrary::countMaxDepth(array(array('foo'))); // 2
+```
+countMaxDepthIterative
+------------------------------
+Count maximum depth of the array (number of nested sub-arrays). Library contains [recursive method](https://github.com/ajant/SimpleArrayLibrary/blob/master/README.md#countmaxdepth) doing th same thing. Recursive 
+method is faster, but in case of very deep arrays may cause memory usage problems.
+```php
+SimpleArrayLibrary::countMaxDepthIterative(array()); // 1
+SimpleArrayLibrary::countMaxDepthIterative(array(1, array())); // 2
+SimpleArrayLibrary::countMaxDepthIterative(array(array('foo'))); // 2
 ```
 countMinDepth
 ------------------------------
