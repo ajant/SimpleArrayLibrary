@@ -190,22 +190,6 @@ SimpleArrayLibrary::hasOnlyKeys(array('a' => 1, 2), array('a', 0)); // true
 SimpleArrayLibrary::hasOnlyKeys(array('b' => 1, 1), array('b', 0, 1)); // false
 SimpleArrayLibrary::hasOnlyKeys(array('b' => 1, 1), array('b')); // false
 ```
-haveEqualKeys
-------------------------------
-Checks if two arrays have equal keys, regardless of values. This method is depricated as of version 2.1.0 and will be replaced with haveSameKeys.
-```php
-SimpleArrayLibrary::haveEqualKeys(array('a' => 1), array('a' => 2)); // true
-SimpleArrayLibrary::haveEqualKeys(array(), array()); // true
-SimpleArrayLibrary::haveEqualKeys(array(1, 'a' => 1), array(2)); // false
-```
-haveEqualValues
-------------------------------
-Checks if two arrays have equal values, regardless of keys. This method is depricated as of version 2.1.0 and will be replaced with haveSameValues.
-```php
-SimpleArrayLibrary::haveEqualValues(array('a' => 1), array(1)); // true
-SimpleArrayLibrary::haveEqualValues(array(), array()); // true
-SimpleArrayLibrary::haveEqualValues(array(1), array(2)); // false
-```
 haveSameKeys
 ------------------------------
 Checks if two arrays have equal keys, regardless of values.
