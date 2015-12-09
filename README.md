@@ -176,11 +176,19 @@ SimpleArrayLibrary::hasAllKeys(array('b' => 1), array('a', 'b')); // false
 ```
 hasAllValues
 ------------------------------
-Checks if all required values are present inside an array, regardless of keys.
+Checks if all required values are present inside an array, regardless of keys. Values must not be arrays.
 ```php
 SimpleArrayLibrary::hasAllValues(array('a' => 1), array(1)); // true
 SimpleArrayLibrary::hasAllValues(array(), array()); // true
 SimpleArrayLibrary::hasAllValues(array('b', 1), array('a', 'b')); // false
+```
+hasAllValuesMultiDimensional
+------------------------------
+Checks if all required values are present inside an array, regardless of keys. Values may be arrays.
+```php
+SimpleArrayLibrary::hasAllValuesMultiDimensional(array('a' => array(1)), array(array(1))); // true
+SimpleArrayLibrary::hasAllValuesMultiDimensional(array(array()), array(array())); // true
+SimpleArrayLibrary::hasAllValuesMultiDimensional(array('b', 1), array('a', 'b')); // false
 ```
 hasOnlyKeys
 ------------------------------

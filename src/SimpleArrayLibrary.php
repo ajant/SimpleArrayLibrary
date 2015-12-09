@@ -333,6 +333,27 @@ class SimpleArrayLibrary
     }
 
     /**
+     * Checks if $array's keys contain all of $subArray's values
+     *
+     * @param array $haystack
+     * @param array $needles
+     *
+     * @return bool
+     */
+    public static function hasAllValuesMultiDimensional(array $haystack, array $needles)
+    {
+        $return = true;
+        foreach ($needles as $needle) {
+            if (!in_array($needle, $haystack)) {
+                $return = false;
+                break;
+            }
+        }
+
+        return $return;
+    }
+
+    /**
      * Checks whether array has only provided keys as indexes
      *
      * @param array $haystack
