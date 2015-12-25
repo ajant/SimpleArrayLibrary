@@ -1,3 +1,15 @@
+4.0.0
+==============================
+saveField method now accepts 0 and '0' as valid values for id parameter and no longer throws an exception if either of those values is passed
+3.0.0
+==============================
+-countMaxDepthIterative method added
+-deprecated methods haveEqualKeys & haveEqualValues removed
+-integer validation improved
+-countMaxDepth signature changed and method efficiency improved
+2.2.0
+==============================
+selectRandomArrayElements method added
 2.1.0
 ==============================
 haveSameKeys & haveSameValues methods added, they will replace haveEqualKeys & haveEqualValues respectively, which are depricated.
