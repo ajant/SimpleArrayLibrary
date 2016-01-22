@@ -442,6 +442,18 @@ class SimpleArrayLibrary
     }
 
     /**
+     * Checks whether array is numeric
+     *
+     * @param array $array
+     *
+     * @return bool
+     */
+    public static function isNumeric(array $array)
+    {
+        return array_keys($array) == range(0, count($array) - 1);
+    }
+
+    /**
      * Checks whether $subArray is contained in $array
      *
      * @param array $array

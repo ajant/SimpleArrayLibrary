@@ -1,3 +1,6 @@
+4.1.0
+==============================
+isNumeric method added
 4.0.0
 ==============================
 saveField method now accepts 0 and '0' as valid values for id parameter and no longer throws an exception if either of those values is passed
@@ -14,13 +17,11 @@ selectRandomArrayElements method added
 ==============================
 haveSameKeys & haveSameValues methods added, they will replace haveEqualKeys & haveEqualValues respectively, which are depricated.
 hasOnlyKeys method added & tested
-
 2.0.0
 ==============================
 CastColumns method allows for empty $matrix input, without throwing an exception.
 Tests code coverage improved to 100%.
 Changelog file added.
-
 1.1.0
 ==============================
 Delete columns method added.

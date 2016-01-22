@@ -234,6 +234,15 @@ Checks whether array has any associative keys.
 ```php
 SimpleArrayLibrary::isAssociative(array('a' => 1, array(1))); // true
 SimpleArrayLibrary::isAssociative(array(1, 1)); // false
+SimpleArrayLibrary::isAssociative(array()); // false
+```
+isNumeric
+------------------------------
+Checks whether array has all numeric keys starting with zero and progressing by one for each new element.
+```php
+SimpleArrayLibrary::isNumeric(array('a' => 1, array(1))); // false
+SimpleArrayLibrary::isNumeric(array(1, 1)); // true
+SimpleArrayLibrary::isNumeric(array()); // false
 ```
 isSubArray
 ------------------------------
