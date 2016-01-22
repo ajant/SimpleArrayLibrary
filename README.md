@@ -17,7 +17,7 @@ Quickstart
 ==============================
 Install the latest version with composer:
 ```
-require "ajant/simple-array-library": ~2
+require "ajant/simple-array-library": ~4.1.0
 ```
 Auto-load the library:
 ```
