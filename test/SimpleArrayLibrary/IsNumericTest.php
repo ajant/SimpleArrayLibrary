@@ -2,7 +2,7 @@
 
 use SimpleArrayLibrary\SimpleArrayLibrary;
 
-class IsAssociativeTest extends PHPUnit_Framework_TestCase
+class IsNumericTest extends PHPUnit_Framework_TestCase
 {
     /**
      * @param array $data
