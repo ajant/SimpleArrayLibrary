@@ -5,7 +5,7 @@ php:
 
 before_script:
   - mkdir -p build/logs
-  - composer install
+  - composer update --prefer-lowest
 
 script:
   - vendor/phpunit/phpunit/phpunit --coverage-clover build/logs/clover.xml test/
