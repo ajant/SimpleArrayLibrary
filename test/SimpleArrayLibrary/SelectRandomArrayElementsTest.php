@@ -18,7 +18,11 @@ class SelectRandomArrayElementsTest extends PHPUnit_Framework_TestCase
         // assert
         if (count($expected) > $requestedNumberOfElements) {
             $this->assertCount(2, $result);
-            $this->assertArraySubset($result, $expected);
+            foreach ($result as $element) {
+                if (!in_array($element, $expected)) {
+                    $this->fail('Element not among expected elements');
+                }
+            }
         } else {
             $this->assertEquals($expected, $result);
         }
