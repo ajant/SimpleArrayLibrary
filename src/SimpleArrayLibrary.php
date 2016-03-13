@@ -454,6 +454,41 @@ class SimpleArrayLibrary
     }
 
     /**
+     * @param mixed $input1
+     * @param mixed $input2
+     *
+     * @return bool
+     */
+    public static function isStructureSame($input1, $input2)
+    {
+        $return = true;
+        if (is_array($input1) && is_array($input2)) {
+            if (!self::compareArrays($input1, $input2) || !self::compareArrays($input2, $input1)) {
+                $return = false;
+            }
+        } else {
+            $return = !is_array($input1) && !is_array($input2);
+        }
+
+        return $return;
+    }
+
+    private function compareArrays(array $input1, array $input2)
+    {
+        foreach ($input1 as $key => $value) {
+            if (!array_key_exists($key, $input2)) {
+                return false;
+            } else {
+                if (!self::isStructureSame($value, $input2[$key])) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+    /**
      * Checks whether $subArray is contained in $array
      *
      * @param array $array

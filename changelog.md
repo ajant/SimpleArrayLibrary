@@ -1,3 +1,6 @@
+4.2.0
+==============================
+isStructureSame method added
 4.1.0
 ==============================
 isNumeric method added

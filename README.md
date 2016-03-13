@@ -244,6 +244,15 @@ SimpleArrayLibrary::isNumeric(array('a' => 1, array(1))); // false
 SimpleArrayLibrary::isNumeric(array(1, 1)); // true
 SimpleArrayLibrary::isNumeric(array()); // false
 ```
+isStructureSame
+------------------------------
+Checks whether 2 arrays have same structure (depth and keys). Values of leaf nodes are ignored, only keys are compared.
+```php
+SimpleArrayLibrary::isStructureSame(1, 'a'); // true
+SimpleArrayLibrary::isStructureSame(array(1, array(1)), array(2, array(3)); // true
+SimpleArrayLibrary::isStructureSame(array(1, array(1)), array(1, 1)); // false
+SimpleArrayLibrary::isStructureSame(array(), array()); // true
+```
 isSubArray
 ------------------------------
 Checks whether array is sub-array of the other array (whether all key-value pairs of sub-array are present in array).
