@@ -473,7 +473,13 @@ class SimpleArrayLibrary
         return $return;
     }
 
-    private function compareArrays(array $input1, array $input2)
+    /**
+     * @param array $input1
+     * @param array $input2
+     *
+     * @return bool
+     */
+    private static function compareArrays(array $input1, array $input2)
     {
         foreach ($input1 as $key => $value) {
             if (!array_key_exists($key, $input2)) {
