@@ -605,4 +605,46 @@ class SimpleArrayLibrary
     {
         return !is_bool($input) && filter_var($input, FILTER_VALIDATE_INT) !== false;
     }
+
+    /**
+     * Sort first array by values from the second array.
+     *
+     * @param array $arrayToSort
+     * @param array $orderArray
+     *
+     * @return array
+     */
+    public static function sortArrayByArray(array $arrayToSort, array $orderArray)
+    {
+        $arrayToSort = array_values($arrayToSort); // reset keys just in case
+        $ordered = array();
+        foreach ($orderArray as $key => $value) {
+            if (in_array($value, $arrayToSort)) {
+                $ordered[] = $value;
+                $keyToUnset = array_search($value, $arrayToSort);
+                unset($arrayToSort[$keyToUnset]);
+            }
+        }
+        return array_merge($ordered, $arrayToSort);
+    }
+
+    /**
+     * Sort first array by keys, by comparing them to the values from the second array.
+     *
+     * @param array $arrayToSort
+     * @param array $orderArray
+     *
+     * @return array
+     */
+    public static function sortArrayKeysByArray(array $arrayToSort, array $orderArray)
+    {
+        $ordered = array();
+        foreach ($orderArray as $value) {
+            if (in_array($value, array_keys($arrayToSort)) && isset($arrayToSort[$value])) {
+                $ordered[$value] = $arrayToSort[$value];
+                unset($arrayToSort[$value]);
+            }
+        }
+        return $ordered + $arrayToSort;
+    }
 }
