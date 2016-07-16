@@ -173,7 +173,7 @@ class SimpleArrayLibrary
     }
 
     /**
-     * Counts maximum array depth
+     * Counts minimum array depth
      *
      * @param mixed $potentialArray
      * @param int   $depth
@@ -430,7 +430,7 @@ class SimpleArrayLibrary
     }
 
     /**
-     * Checks whether array is associative or numeric
+     * Checks whether array is associative
      *
      * @param array $array
      *
@@ -604,5 +604,59 @@ class SimpleArrayLibrary
     private static function isLogicallyCastableToInt($input)
     {
         return !is_bool($input) && filter_var($input, FILTER_VALIDATE_INT) !== false;
+    }
+
+    /**
+     * Sort first array by values from the second array.
+     * Both arrays must be one dimensional.
+     *
+     * @param array $arrayToSort
+     * @param array $orderArray
+     *
+     * @return array
+     */
+    public static function sortArrayByArray(array $arrayToSort, array $orderArray)
+    {
+        // validate input
+        if (self::countMinDepth($arrayToSort) != 1 || self::countMinDepth($orderArray) != 1) {
+            throw new UnexpectedValueException('Both array to sort and order array must be of one dimensional arrays');
+        }
+
+        $arrayToSort = array_values($arrayToSort);
+        $ordered = array();
+        foreach ($orderArray as $key => $value) {
+            if (in_array($value, $arrayToSort)) {
+                $ordered[] = $value;
+                $keyToUnset = array_search($value, $arrayToSort);
+                unset($arrayToSort[$keyToUnset]);
+            }
+        }
+        return array_merge($ordered, $arrayToSort);
+    }
+
+    /**
+     * Sort first array by keys, by comparing them to the values from the second array.
+     *
+     * @param array $arrayToSort
+     * @param array $orderArray
+     *
+     * @return array
+     */
+    public static function sortArrayKeysByArray(array $arrayToSort, array $orderArray)
+    {
+        if (!self::isAssociative($arrayToSort)) {
+            throw new UnexpectedValueException('Array to sort must be associative');
+        }
+        if (self::countMinDepth($orderArray) != 1) {
+            throw new UnexpectedValueException('Ordering array must be one dimensional');
+        }
+        $ordered = array();
+        foreach ($orderArray as $value) {
+            if (in_array($value, array_keys($arrayToSort)) && isset($arrayToSort[$value])) {
+                $ordered[$value] = $arrayToSort[$value];
+                unset($arrayToSort[$value]);
+            }
+        }
+        return $ordered + $arrayToSort;
     }
 }
