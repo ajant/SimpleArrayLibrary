@@ -288,3 +288,18 @@ SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1); // a
 SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1, false, false); // array(array('foo' => 2), array())
 SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1, true, false); // array(array('foo' => 2), array('foo' => 1))
 ```
+sortArrayByArray
+------------------------------
+Sort first array by comparing it with the values from the second array.
+
+```php
+SimpleArrayLibrary::sortArrayByArray(array('sort1', 'sort2'), array('sort2', 'sort1')); // array('sort2', 'sort1')
+```
+sortArrayKeysByArray
+------------------------------
+Sort first array by comparing its keys with the values from the second array.
+
+```php
+SimpleArrayLibrary::sortArrayKeysByArray(array('key1' => 'sort1', 'key2' => 'sort2'), array('key2', 'key1')); // array('key2' => 'sort2', 'key1' => 'sort1')
+```
+

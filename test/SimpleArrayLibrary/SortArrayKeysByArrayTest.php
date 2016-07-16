@@ -137,6 +137,48 @@ class SortArrayKeysByArrayTest extends PHPUnit_Framework_TestCase
                     'key2' => 'value2',
                     'key3' => 'value3'
                 ]
+            ],
+            // #6 Array to sort is multidimensional
+            [
+                'arrayToSort' => [
+                    'key1' => [
+                        'innerKey1' => []
+                    ],
+                    'key2' => [],
+                ],
+                'orderArray' => [
+                    'key2'
+                ],
+                'expectedResults' => [
+                    'key2' => [],
+                    'key1' => [
+                        'innerKey1' => []
+                    ],
+                ]
+            ],
+            // #7 Order array is empty
+            [
+                'arrayToSort' => [
+                    'key1' => 'value1',
+                    'key2' => 'value2'
+                ],
+                'orderArray' => [],
+                'expectedResults' => [
+                    'key1' => 'value1',
+                    'key2' => 'value2'
+                ]
+            ],
+            // #8 Order array is associative, but has proper ordering value
+            [
+                'arrayToSort' => [
+                    'key1' => 'value1',
+                    'key2' => 'value2'
+                ],
+                'orderArray' => ['key' => 'key2'],
+                'expectedResults' => [
+                    'key2' => 'value2',
+                    'key1' => 'value1'
+                ]
             ]
         ];
     }

@@ -136,6 +136,30 @@ class SortArrayByArrayTest extends PHPUnit_Framework_TestCase
                     'sort2',
                     'sort3'
                 ]
+            ],
+            // #6 Both arrays empty
+            [
+                'arrayToSort' => [],
+                'orderArray' => [],
+                'expectedResults' => []
+            ],
+            // #7 Array to sort is empty
+            [
+                'arrayToSort' => [],
+                'orderArray' => ['some ordering value'],
+                'expectedResults' => []
+            ],
+            // #8 Order array is empty
+            [
+                'arrayToSort' => [
+                    'value1',
+                    'value2'
+                ],
+                'orderArray' => [],
+                'expectedResults' => [
+                    'value1',
+                    'value2'
+                ]
             ]
         ];
     }
