@@ -30,7 +30,7 @@ class SortArrayKeysByArrayXTest extends PHPUnit_Framework_TestCase
             [
                 'arrayToSort' => ['test value'],
                 'orderArray' => ['test value'],
-                'expectedException' => UnexpectedValueException::class,
+                'expectedException' => 'UnexpectedValueException',
                 'exceptionMessage' => 'Array to sort must be associative'
             ],
             // #1 Ordering array is multidimensional
@@ -39,7 +39,7 @@ class SortArrayKeysByArrayXTest extends PHPUnit_Framework_TestCase
                 'orderArray' => [ // invalid
                     'testKey' => []
                 ],
-                'expectedException' => UnexpectedValueException::class,
+                'expectedException' => 'UnexpectedValueException',
                 'exceptionMessage' => 'Ordering array must be one dimensional'
             ]
         ];

@@ -14,7 +14,7 @@ class SortArrayByArrayXTest extends PHPUnit_Framework_TestCase
     public function test_function(array $arrayToSort, $orderArray)
     {
         // prepare
-        self::setExpectedException(UnexpectedValueException::class,
+        self::setExpectedException('UnexpectedValueException',
             'Both array to sort and order array must be of one dimensional arrays');
 
         // invoke logic & test
