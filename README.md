@@ -288,3 +288,11 @@ SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1); // a
 SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1, false, false); // array(array('foo' => 2), array())
 SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1, true, false); // array(array('foo' => 2), array('foo' => 1))
 ```
+transpose
+------------------------------
+Simple matrix transpose
+
+Meant for, and tested with, simple two dimentional matrix.
+```php
+SimpleArrayLibrary::transpose([[1,2,3], [4,5,6]]); // [[1,4], [2,5], [3,6]]
+```
