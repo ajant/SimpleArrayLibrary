@@ -288,3 +288,11 @@ SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1); // a
 SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1, false, false); // array(array('foo' => 2), array())
 SimpleArrayLibrary::setColumn(array(array('foo' => 2), array()), 'foo', 1, true, false); // array(array('foo' => 2), array('foo' => 1))
 ```
+transpose
+------------------------------
+Transpose a matrix
+
+Turns rows into columns, and columns into rows. This is very handy when you need to reshape a dataset for a report or plot.
+```php
+SimpleArrayLibrary::transpose(array(array(1, 2, 3). array(4, 5, 6))); // array(array(1, 4), array(2, 5), array(3, 6))
+```

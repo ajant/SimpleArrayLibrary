@@ -181,4 +181,17 @@ trait Changers
 
         return $matrix;
     }
+
+    /**
+     * @param array $matrix
+     *
+     * @return array
+     */
+    public static function transpose(array $matrix)
+    {
+        // example #4 explains how this works
+        // http://php.net/manual/en/function.array-map.php
+        array_unshift($matrix, null);
+        return call_user_func_array('array_map', $matrix);
+    }
 }
